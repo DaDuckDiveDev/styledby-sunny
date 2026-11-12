@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a house call | Styled by Sunny</title>
+<meta name="description" content="Request a house call with Sunny. Choose a service, share your address and pick a day. She confirms by text.">
+<meta name="theme-color" content="#F3ECE2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book a house call | Styled by Sunny">
+<meta property="og:description" content="Request a house call with Sunny. She confirms the time and price by text.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page">
+
+<header class="book-head">
+  <a class="mark" href="index.html">Styled by <span class="it">Sunny</span></a>
+  <a class="link small" href="index.html">Back to site</a>
+</header>
+
+<main class="book">
+  <div class="progress" id="progress" role="progressbar" aria-label="Booking progress" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1">
+    <span class="seg seg-on"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+  </div>
+
+  <form id="form" novalidate>
+
+    <section class="pane" data-step="1">
+      <div class="pane-head">
+        <p class="eyebrow">Step 1 of 4</p>
+        <h1 class="display h2">Choose your <span class="it">service</span></h1>
+      </div>
+      <div class="stack g12" role="radiogroup" aria-label="Service" data-group="service">
+        <button type="button" class="opt" role="radio" aria-checked="false" data-key="cut" data-value="Cut &amp; style">
+          <span class="opt-main"><span class="opt-name">Cut &amp; style</span><span class="opt-desc">A fresh cut, finished with a blow-dry.</span></span>
+          <span class="price">From [PRICE]</span>
+        </button>
+        <button type="button" class="opt" role="radio" aria-checked="false" data-key="blowout" data-value="Blowout &amp; waves">
+          <span class="opt-main"><span class="opt-name">Blowout &amp; waves</span><span class="opt-desc">Soft, lived-in waves for a night out or an event.</span></span>
+          <span class="price">From [PRICE]</span>
+        </button>
+        <button type="button" class="opt" role="radio" aria-checked="false" data-key="balayage" data-color="1" data-value="Balayage &amp; highlights">
+          <span class="opt-main"><span class="opt-name">Balayage &amp; highlights</span><span class="opt-desc">Hand-painted color that grows out softly.</span></span>
+          <span class="price">From [PRICE]</span>
+        </button>
+        <button type="button" class="opt" role="radio" aria-checked="false" data-key="roots" data-color="1" data-value="Root touch-up &amp; gloss">
+          <span class="opt-main"><span class="opt-name">Root touch-up &amp; gloss</span><span class="opt-desc">Fresh roots and tone between color appointments.</span></span>
+          <span class="price">From [PRICE]</span>
+        </button>
+      </div>
+      <p class="note" id="colorNote" hidden>Color starts with a quick text consult. Sunny will ask about your hair history before she confirms.</p>
+      <p class="err" data-err role="alert" hidden></p>
+      <button type="button" class="btn btn-block" data-next>Continue</button>
+    </section>
+
+    <section class="pane" data-step="2" hidden>
+      <button type="button" class="back" data-back>&larr; Back</button>
+      <div class="pane-head">
+        <p class="eyebrow">Step 2 of 4</p>
+        <h1 class="display h2">Where should Sunny <span class="it">come?</span></h1>
+      </div>
+      <div class="field">
+        <label class="label" for="street">Street address</label>
+        <input class="input" id="street" name="street" type="text" autocomplete="address-line1" enterkeyhint="next" required>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label class="label" for="unit">Apt or unit <span class="optional">(optional)</span></label>
+          <input class="input" id="unit" name="unit" type="text" autocomplete="address-line2" enterkeyhint="next">
+        </div>
+        <div class="field">
+          <label class="label" for="zip">ZIP code</label>
+          <input class="input" id="zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" enterkeyhint="next" required>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="city">City</label>
+        <input class="input" id="city" name="city" type="text" autocomplete="address-level2" enterkeyhint="next" required>
+      </div>
+      <div class="field">
+        <span class="label" id="parkLabel">Parking <span class="optional">(optional)</span></span>
+        <div class="wins" role="radiogroup" aria-labelledby="parkLabel" data-group="parking">
+          <button type="button" class="win" role="radio" aria-checked="false" data-value="Driveway">Driveway</button>
+          <button type="button" class="win" role="radio" aria-checked="false" data-value="Street">Street</button>
+          <button type="button" class="win" role="radio" aria-checked="false" data-value="Garage or gate">Garage or gate</button>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="access">Gate code, stairs, pets <span class="optional">(optional)</span></label>
+        <input class="input" id="access" name="access" type="text" autocomplete="off" enterkeyhint="done">
+      </div>
+      <p class="note">Sunny needs a chair near an outlet, and a sink close by for color.</p>
+      <p class="err" data-err role="alert" hidden></p>
+      <button type="button" class="btn btn-block" data-next>Continue</button>
+    </section>
+
+    <section class="pane" data-step="3" hidden>
+      <button type="button" class="back" data-back>&larr; Back</button>
+      <div class="pane-head">
+        <p class="eyebrow">Step 3 of 4</p>
+        <h1 class="display h2">When works <span class="it">for you?</span></h1>
+      </div>
+      <div class="field">
+        <span class="label" id="dayLabel">Day</span>
+        <div class="days" id="days" role="radiogroup" aria-labelledby="dayLabel" data-group="day"></div>
+      </div>
+      <div class="field">
+        <span class="label" id="winLabel">Time of day</span>
+        <div class="wins" role="radiogroup" aria-labelledby="winLabel" data-group="window">
+          <button type="button" class="win" role="radio" aria-checked="false" data-value="Morning">Morning</button>
+          <button type="button" class="win" role="radio" aria-checked="false" data-value="Afternoon">Afternoon</button>
+          <button type="button" class="win" role="radio" aria-checked="false" data-value="Evening">Evening</button>
+        </div>
+      </div>
+      <p class="muted small">Sunny confirms the exact time by text.</p>
+      <p class="err" data-err role="alert" hidden></p>
+      <button type="button" class="btn btn-block" data-next>Continue</button>
+    </section>
+
+    <section class="pane" data-step="4" hidden>
+      <button type="button" class="back" data-back>&larr; Back</button>
+      <div class="pane-head">
+        <p class="eyebrow">Step 4 of 4</p>
+        <h1 class="display h2">Your <span class="it">details</span></h1>
+      </div>
+      <div class="field">
+        <label class="label" for="name">Full name</label>
+        <input class="input" id="name" name="name" type="text" autocomplete="name" enterkeyhint="next" required>
+      </div>
+      <div class="field">
+        <label class="label" for="phone">Mobile number</label>
+        <input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" required>
+      </div>
+      <div class="field">
+        <label class="label" for="instagram">Instagram <span class="optional">(optional)</span></label>
+        <input class="input" id="instagram" name="instagram" type="text" placeholder="@yourhandle" autocapitalize="none" autocorrect="off" autocomplete="off" enterkeyhint="next">
+      </div>
+      <div class="field">
+        <label class="label" for="notes">Anything Sunny should know? <span class="optional">(optional)</span></label>
+        <textarea class="input area" id="notes" name="notes" rows="3" placeholder="Hair length, current color, the look you want"></textarea>
+      </div>
+      <p class="muted small">Have an inspo photo? DM it to <a class="link" href="https://www.instagram.com/styledby.sunny/">@styledby.sunny</a> after you send this.</p>
+      <div class="sum" id="summary"></div>
+      <div class="hp" aria-hidden="true">
+        <label for="company">Company</label>
+        <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <p class="err" data-err role="alert" hidden></p>
+      <button type="submit" class="btn btn-block" id="send">Send request</button>
+      <p class="muted small">This is a request, not a confirmed booking. Sunny will text you to confirm the time and price. Your address is used only to plan this visit.</p>
+    </section>
+
+    <section class="pane" data-step="done" hidden>
+      <div class="pane-head">
+        <p class="eyebrow" id="doneEyebrow">Request sent</p>
+        <h1 class="display h2" id="doneTitle">Thank you. Sunny will <span class="it">text you.</span></h1>
+      </div>
+      <p class="lede" id="doneText">She will confirm the exact time and price before anything is final.</p>
+      <div class="sum" id="doneSummary"></div>
+      <a class="btn btn-ghost btn-block" href="index.html">Back to site</a>
+    </section>
+
+  </form>
+</main>
+
+<script src="book.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "styledby-sunny",
+  "private": true,
+  "description": "Landing page and house-call booking flow for Styled by Sunny",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "preflight": "node scripts/preflight.mjs"
+  }
+}
